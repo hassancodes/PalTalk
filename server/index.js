@@ -17,6 +17,15 @@ const io = new Server(server,{
 // waiting for connections 
 io.on("connection",(socket)=>{
     console.log(`${socket.id} is connecting`);
+
+
+    // logic for add to room
+    socket.on("join_room",(roomName)=>{
+        socket.join(roomName)
+        console.log(`User : ${socket.id} is connected to the room: ${roomName}`);
+
+    })
+
     socket.on("disconnect", ()=>{
         console.log(`${socket.id} is disconnecting`);
     })
