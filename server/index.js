@@ -26,9 +26,19 @@ io.on("connection",(socket)=>{
 
     })
 
+     // recieving text message 
+    socket.on("send_message",(data)=>{
+        socket.to(data.room).emit("receive_message",data);
+
+    })
+
+    
+    // runs when the user is disconnecting
     socket.on("disconnect", ()=>{
         console.log(`${socket.id} is disconnecting`);
     })
+
+   
 
 })
 server.listen(3001,()=>{
