@@ -7,3 +7,6 @@
 
 ### Library Uses
 - ReactJS
+
+### To do
+add tailwinCSS
